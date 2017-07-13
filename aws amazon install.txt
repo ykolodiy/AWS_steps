@@ -1,0 +1,210 @@
+https://www.youtube.com/watch?v=zojMg2c6k3Q
+
+http://ec2-34-211-112-79.us-west-2.compute.amazonaws.com/
+
+create free amazon tier
+https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2  
+select EC2
+select Launch Instance
+select Ubuntu server 13 64bit
+select micro.instance t1   this one for free only
+Next configure instance details
+next storage
+next tag instance put any value
+configure security - add http port
+review launch
+launch
+create new key pair  like ssh > download key pair .pem file > Launch instances
+click instance id
+select instance raw and grub public dns  its  url
+
+now switch to cmd window to ssh access------
+
+run:
+ssh -i C:/privatekey/key.pem username@public dns  its  url
+maybe alert to change permission on .pem file. lets change
+chmod 600 C:/privatekey/key.pem
+try again
+ssh -i C:/privatekey/key.pem username@public dns  its  url   and we connected to instance
+or exit to quit
+
+there is quick way to connect. 
+1 create file "config" inside .ssh folder
+{
+Host ec2
+Hostname   hostname.amazon.com
+User ubuntu
+IdentityFile  .ssh/myprivatekey.pem
+}
+add repository for jenkins package
+
+{//get key
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+
+//tell ubuntu where package is
+echo "deb http://pkg.jenkins-ci.org/debian binary/" | sudo tee -a /etc/apt/sources.list.d/jenkins.list
+
+//update list of packages
+sudo apt-get update
+
+//install jenkins
+sudo apt-get install jenkins
+}
+
+ok now chekc is jenkins running
+{ps -ef | grep jenkins}
+
+now lets setup apache request to redirect requests from port 80 to 8080 where jenkins unprivileged user went
+==you can use old port 8080 and skip apache section but let do it
+
+
+Installing Apache
+
+sudo apt-get install apache2
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+
+configure apache
+ /etc/apache2/sites-enabled/000-default.conf
+
+
+//configure apache create file
+vim /etc/apache2/sites-available/jenkins.conf
+jenkins.conf file:
+<VirtualHost *:80>
+	ServerName your hostename.amazon.com
+	ProxyRequests Off
+	<Proxy *>
+		Order deny,allow
+		Allow from all
+	</Proxy>
+	ProxyPreserveHost on
+	ProxyPass / http://localhost:8080/
+</VirtualHost>
+
+
+Enabling jenkins.conf
+{
+sudo a2ensite jenkins
+sudo service apache2 reload}
+
+
+to acess jenkins server thru web type in browser your host name
+//Installing Java / Maven / Git
+
+//sudo add-apt-repository ppa:webupd8team/java
+//sudo apt-get update
+//sudo apt-get install oracle-java7-installer maven git-core
+
+
+
+
+2 ok lets configure.
+1 configure global security > enable security > jenkins own user database > uncheck users to sign up > logged users can do anything
+2 setup a first account > click left top Jenkins tab > sign up
+3 setup global conf > manage plugins > available tab > filter "GitHub plugin"
+4 to create more accounts > manage jenkins > manage users > create user
+5 configure system > need to install java maven git
+go back to terminal instance:
+
+//creare rep
+sudo add-apt-repository ppa:webupd8team/java
+//update packages
+sudo apt-get update
+//install
+sudo apt-get install oracle-java7-installer maven git-core
+
+
+//check if installed
+javac - version
+mvn - version
+
+//get location of java
+readlink -f /usr/bin/javac
+
+
+/usr/lib/jvm/java-8-oracle/bin/javac
+
+// select url upto bin folder
+
+and go back to browser and instal in configuration for jdk JAVA_HOME
+
+
+now maven
+//get maven location
+readlink -f /usr/bin/mvn
+
+select to bin and paste for MAVEN_HOME
+
+
+set email addrs
+
+SSH server disable
+
+SAVE
+
+3 set up jenkins project
+
+jenkins must pull code from github build it and test it
+
+new item > maven > ok 
+
+Source code management > GIT
+path to repository L git@github.ccc.git
+
+create ssh for jenkins users to get them access to git rep !!!!
+
+back to terminal:
+//switch to jenkins user
+sudo su - jenkins
+
+ssh-keygen -t dsa   (keys generated id_dsa private and id_dsa.pub   public)
+
+
+
+change port here
+sudo nano /etc/default/jenkins
+
+
+Let's start Jenkins up and make sure it starts every time we reboot:
+
+sudo service jenkins start
+sudo chkconfig --add jenkins
+
+
+cd .ssh    (pwd: /var/lib/jenkins/.ssh)
+
+so go to .ssh folder and: cat id_dsa.pub   
+and copy public key
+
+
+go back to github rep > settings > deploy keys > add deploy keys > paste
+
+copy git command from jenkins in red that says we cant access and run in terminal
+
+change port
+vim /etc/apache2/sites-available/jenkins.conf
+Listen 7777
+<VirtualHost http://ec2-34-211-112-79.us-west-2.compute.amazonaws.com>
+    DocumentRoot "/etc/default/jenkins"
+    ServerName http://ec2-34-211-112-79.us-west-2.compute.amazonaws.com
+</VirtualHost>
+
+
+and
+nano /etc/default/jenkins
+add HTTP_PORT=7777
+
+add security group Custom TCP Rule TCP 7777 0.0.0.0/0
+
+
+
+
+check what run on port sudo fuser -v -n tcp 7777
+
+
+
+remove jenkins
+sudo apt-get remove jenkins
+sudo apt-get remove --auto-remove jenkins
+sudo apt-get remove --purge jenkins
