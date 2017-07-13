@@ -1,0 +1,16 @@
+sudo apt-get install phpmyadmin
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin
+sudo /etc/init.d/apache2 reload
+
+
+get http://34.211.112.79/phpmyadmin
+login pass as mysql
+
+
+
+
+https://help.ubuntu.com/community/phpMyAdmin
+
+
+INSERT INTO `pet`(`name`, `owner`, `species`, `sex`, `birth`, `death`) VALUES (`sd`,`sd`,`sd`,`sd`,`sd`,`sd`)

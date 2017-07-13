@@ -1,0 +1,82 @@
+=========================install mysql
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+sudo mysql_install_db
+
+//check
+mysql --version
+service mysql status
+mysqladmin -p -u root version
+
+//restart
+sudo /etc/init.d/mysql restart
+or
+service mysql restart
+
+//change port
+one of these
+/etc/my.conf
+/etc/my.cnf
+/etc/mysql/my.conf
+
+//get into
+mysql -u root -p
+
+To update the password of root user do the following:
+mysqladmin -u root password [your_new_pwd]
+To create a database do the following:
+mysqladmin -u root -p create [your_new_db]
+
+
+=================make mysql accept external connections:
+
+1 enable port 3306 open in aws security group
+
+2 
+open 
+/etc/mysql$ sudo nano my.cnf
+Relevant portion that works for me:
+
+find
+bind-address = 127.0.0.1
+In your my.cnf configuration file, you should comment them (add a # at the beginning of the lines), and restart MySQL.
+
+restert mysql
+/etc/mysql$ sudo service mysql restart
+
+
+user root is local only u need create another user and give him priviliges:
+
+CREATE USER 'molotov'@'localhost' IDENTIFIED BY 'Comrade20'; 
+CREATE USER 'molotov'@'%' IDENTIFIED BY 'Comrade20'; 
+
+GRANT ALL PRIVILEGES ON *.* to molotov@localhost IDENTIFIED BY 'Comrade20' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* to molotov@'%' IDENTIFIED BY 'Comrade20' WITH GRANT OPTION;   (% mean all host, but u cat specify just one )
+FLUSH PRIVILEGES;
+EXIT;
+
+
+
+
+
+
+so you will have something like
+
+<?php
+         
+            $dbhost = 'ec2-34-211-112-79.us-west-2.compute.amazonaws.com';
+            $dbuser = 'molotov';
+            $dbpass = 'Comrade20';
+            $dbname = 'mysql';
+
+
+
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname, 3306);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+
