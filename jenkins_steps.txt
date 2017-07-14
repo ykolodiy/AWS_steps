@@ -38,7 +38,16 @@ what port listen?
 home 	/var/lib/jenkins
 
 
+get java location
+readlink -f /usr/bin/javac
 
+u got - /usr/lib/jvm/java-8-oracle/bin/javac
+ADD jdk   JAVA_HOME /usr/lib/jvm/java-8-oracle 
 
+and maven the same
+readlink -f /usr/bin/mvn
+/usr/share/maven/bin/mvn
+
+past to  MAVEN_HOME /usr/share/maven
 
 
