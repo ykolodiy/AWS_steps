@@ -50,4 +50,4 @@ readlink -f /usr/bin/mvn
 
 past to  MAVEN_HOME /usr/share/maven
 
-
+add maven integration plugin
