@@ -1,0 +1,35 @@
+install
+
+sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo echo 'deb https://pkg.jenkins.io/debian-stable binary/' | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install jenkins
+
+check if it runs on 8080
+netstat -plntu
+
+sudo service jenkins restart
+ok now chekc is jenkins running
+{ps -ef | grep jenkins}
+
+
+remove
+sudo service jenkins stop
+sudo apt-get remove --purge jenkins
+sudo apt-get remove jenkins
+sudo apt-get remove --auto-remove jenkins
+
+
+
+what port listen? 
+ netstat -tulpn | grep LISTEN
+
+
+
+
+
+
+
+
+
+
