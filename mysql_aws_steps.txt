@@ -65,9 +65,9 @@ so you will have something like
 
 <?php
          
-            $dbhost = 'ec2-34-211-112-79.us-west-2.compute.amazonaws.com';
-            $dbuser = 'molotov';
-            $dbpass = 'Comrade20';
+            $dbhost = '';
+            $dbuser = '';
+            $dbpass = '';
             $dbname = 'mysql';
 
 
@@ -80,3 +80,33 @@ if (!$conn) {
 
 
 
+
+
+//show
+mysql> SHOW DATABASES;
+
+//create db
+mysql> CREATE DATABASE database name;    or   DROP DATABASE database name;
+
+//open db
+ USE dbname;
+ 
+ //show tables
+  SHOW tables; 
+  
+  //create
+  CREATE TABLE potluck (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+name VARCHAR(20),
+food VARCHAR(30),
+confirmed CHAR(1), 
+signup_date DATE);
+
+//check
+DESCRIBE potluck;
+
+//insert
+INSERT INTO `potluck` (`id`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, "John", "Casserole","Y", '2012-04-11');
+
+//add column
+ ALTER TABLE potluck ADD email VARCHAR(40);
+ or delete ALTER TABLE potluck DROP email;
