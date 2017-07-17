@@ -19,10 +19,10 @@ vi wp-config.php
 
 Type i to start insert mode.
 Modify the database connection parameters as follows:
-define(‘DB_NAME’, ‘name_of_db’);
-define(‘DB_USER’, ‘root’);
-define(‘DB_PASSWORD’, ‘YOUR_PASSWORD’);
-define(‘DB_HOST’, ‘localhost’);
+define(â€˜DB_NAMEâ€™, â€˜name_of_dbâ€™);
+define(â€˜DB_USERâ€™, â€˜rootâ€™);
+define(â€˜DB_PASSWORDâ€™, â€˜YOUR_PASSWORDâ€™);
+define(â€˜DB_HOSTâ€™, â€˜localhostâ€™);
 Type :wq to write the file and quit vi
 
 
@@ -36,8 +36,39 @@ Map your domain name to that IP address
 To associate an IP address to your instance:
 
 In the AWS Management Console, click Elastic IPs (left navigation bar)
-Click Allocate New Address, and confirm by clicking the “Yes, Allocate” button
-Right-click the newly allocated IP address and select “Associate” in the popup menu. Select the instance you just created and click “Yes, Associate”
+Click Allocate New Address, and confirm by clicking the â€œYes, Allocateâ€ button
+Right-click the newly allocated IP address and select â€œAssociateâ€ in the popup menu. Select the instance you just created and click â€œYes, Associateâ€
 To map your domain name to your IP address, you will have to use the tools provided by your domain registrar. If you use GoDaddy, specify NS73.DOMAINCONTROL.COM and NS74.DOMAINCONTROL.COM as the name servers for your domain, and use the DNS Manager to modify the A record and point to your IP address. Documentation is available here.
 
 Once everything is configured and mapped correctly, access the General Settings in the WordPress management console and make sure the WordPress Address and Site Address are specified correctly using your domain name as in the screenshot below.
+
+
+
+/move wordpress to another domain
+0 Download the entire contents of the wordpress folder to your computer.
+
+1 export db using phpmyadmin  or mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+
+2 create new db and import your file.sql from old db using phpmyadmin or command mysql -u username -p database_name < file.sql
+    or 
+    mysql> use db_name;
+    mysql> source backup-file.sql;
+    
+3 upload the entire contents of the wordpress folder to your computer.
+
+4 update wp-config.php with new credentials
+
+5 Fixing Broken Links After Moving Your WordPress Site
+   Log in to your WordPress admin panel.
+From the Plugins menu, click Add New.
+Enter Search and replace, and then click Search Plugins.
+Locate the Search and Replace plugin, and then click Install Now.
+Click OK.
+Click Activate Plugin.
+From the Tools menu, click Search and Replace.
+Enter your old site URL in the Search for field. For example, http://olddomainexample.com (no trailing slash).
+Enter your new site URL in the Replaced with field. For example, http://newdomainexample.com (no trailing slash).
+Select All, and then click Go.
+Using your hosting account's editor, open your wp-config.php file, and remove the following two lines:
+define('WP_HOME','http://example.com');
+define('WP_SITEURL','http://example.com');
