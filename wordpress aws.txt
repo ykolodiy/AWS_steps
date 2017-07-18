@@ -72,3 +72,8 @@ Select All, and then click Go.
 Using your hosting account's editor, open your wp-config.php file, and remove the following two lines:
 define('WP_HOME','http://example.com');
 define('WP_SITEURL','http://example.com');
+
+
+
+
+search replace script https://github.com/interconnectit/Search-Replace-DB
