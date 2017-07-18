@@ -14,3 +14,17 @@ https://help.ubuntu.com/community/phpMyAdmin
 
 
 INSERT INTO `pet`(`name`, `owner`, `species`, `sex`, `birth`, `death`) VALUES (`sd`,`sd`,`sd`,`sd`,`sd`,`sd`)
+
+
+///
+
+DELETE FROM `wp_posts` WHERE `post_author` =0;
+
+
+DELETE FROM `wp_posts` WHERE `post_status` = "inherit"
+
+
+
+mysql -u {DB-USER-NAME} -p {DB-NAME} < {db.file.sql path}
+
+mysql -u root -p wp < /var/www/html/wp_post2.sql
