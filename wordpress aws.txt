@@ -77,3 +77,23 @@ define('WP_SITEURL','http://example.com');
 
 
 search replace script https://github.com/interconnectit/Search-Replace-DB
+
+
+
+links not working?
+
+In /etc/apache2/apache2.conf, edit AllowOverride None for /var/www/ to AllowOverride All
+Type in the following command to enable mod_rewrite for .htaccess
+sudo a2enmod rewrite
+
+Restart your apache server:
+sudo service apache2 restart
+
+The problem solved!!!
+
+
+Try flushing your mod_rewrite rules:
+
+Dashboard -> Settings -> Permalinks
+
+Save settings (no need to make any changes)
