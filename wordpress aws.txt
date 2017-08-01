@@ -1,6 +1,6 @@
 http://coenraets.org/blog/2012/01/setting-up-wordpress-on-amazon-ec2-in-5-minutes/
 
-
+ 
 1 create database 
 mysqladmin -uroot create blog   or  mysql:> create database name_of_db
 
