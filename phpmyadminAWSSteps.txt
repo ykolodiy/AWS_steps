@@ -5,7 +5,7 @@ sudo /etc/init.d/apache2 reload
 
 
 get http://34.211.112.79/phpmyadmin
-login pass as mysql
+login root, pass Com...20
 
 
 
