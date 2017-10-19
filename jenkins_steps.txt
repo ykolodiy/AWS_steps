@@ -7,6 +7,12 @@ sudo apt-get install jenkins
 
 check if it runs on 8080
 
+check if jenkins running: sudo service jenkins status
+
+start jenkins: sudo service jenkins start
+Stop: sudo service jenkins stop
+restart: sudo /etc/init.d/jenkins {start|stop|status|restart|force-reload}
+
 change port
 
 sudo nano etc/default/jenkins
