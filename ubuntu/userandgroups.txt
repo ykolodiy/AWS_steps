@@ -1,0 +1,48 @@
+USERS ============
+add user
+sudo adduser yuriy
+
+delete user
+sudo userdel yuriy
+
+list of users
+sudo nano /etc/passwd
+
+change password
+sudo passwd yuriy
+
+GROUPS =========  restrict users to folders at once using groups
+
+Add group
+sudo groupadd yuriygroup     //now u can put all people from yuriy friends to this group
+
+Delete group
+sudo groupdel yuriygroup     // be carefully hard to add again all users
+
+Add user to Group
+sudo adduser yuriy yuriygroupname
+
+Remove user from group
+sudo deluser yuriy yuriygroupname
+
+all group files is stored in > sudo nano /etc/group
+
+PERMISSION ======
+
+764
+7 - owner user permission (4+2+1  1 execute )
+6 - member of a group permission (6=4+2, 4 read, 2 write)
+5 - all other ppl   (only read 4 and execute 1 )
+
+to SET permission on folder or file
+sudo chmod 775 foldername -R   (-R all way down if folder)
+sudo chmod 775 filename
+
+
+ls -l > list folders with permission
+
+
+
+
+
+
