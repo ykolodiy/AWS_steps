@@ -1,10 +1,13 @@
+change group:user permission from jenkins to root to upload files to workspace folder
+
+
 0 compile java file on your pc > javac package/classname.java
 new file will appeat classname.class
 u can run it > java package/classname
 
 
 
-1 create txt file > /var/lib/jenkins/workspace/da/DA3/office/da.txt
+1 create txt file > /var/lib/jenkins/workspace/da/DA3/office/da.txt .. after u done change group:user permission from root to jenkins for whole folder workspace
 2 Folder     /var/lib/jenkins/workspace/da/DA3
 3 Run shell command     java office/daa             (some java version use . some / btw office/daa )))
 
