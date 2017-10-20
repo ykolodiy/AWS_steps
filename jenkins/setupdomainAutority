@@ -1,0 +1,26 @@
+0 compile java file on your pc > javac package/classname.java
+new file will appeat classname.class
+u can run it > java package/classname
+
+
+
+1 create txt file > /var/lib/jenkins/workspace/da/DA3/office/da.txt
+2 Folder     /var/lib/jenkins/workspace/da/DA3
+3 Run shell command     java office/daa             (some java version use . some / btw office/daa )))
+
+
+in Windows Local host it was like
+- folder  C:\Users\vkoloyu\JENKINS\workspace\DA2
+- execute windows batch commans > java office.daa
+- file location in java file C:/ddd/ddd/t.txt
+
+
+
+if java cant find main class, add for windows
+set class="C:\Program Files (x86)\Java\jdk1.8.0_151\bin";
+set classpath="C:\Program Files (x86)\Java\jre1.8.0_151\lib\rt.jar";
+
+get JAVA location > readlink -f /usr/bin/javac
+get classpath > echo $CLASSPATH    (windows echo %CLASSPATH%)
+get path > echo $PATH     (windows echo %PATH%)
+
