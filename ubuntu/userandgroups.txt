@@ -42,7 +42,10 @@ sudo chmod 775 filename
 ls -l > list folders with permission
 
 
-
+OWNERSHIP =====
+change user who own folder/file
+sudo chown -R yuriy folder/file
+sudo chgrp -R yuriygroup folder/file
 
 
 
