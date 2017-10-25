@@ -9,9 +9,20 @@ _____
 
 SSH in ubuntu
 local
+0 login to your ubuntu server using login and pass
 1 sudo apt-get install ssh
 2 if config > get local ip of your server 192.168.5.5
 3 from local machine terminal: ssh 192.168.5.5 
+
+
+
+local 
+
+0 login to your ubuntu server using login and pass
+1 sudo apt-get install openssh-server  > ubuntu pass   (to let other ppl to connect)
+2 sudo nano /etc/ssh/sshd_config    > port number use 22. for putty
+3 from local: ssh ubuntuuser@innerip > password
+
 
 external using password
 1 ssh myusername@Publicipadressofserver
