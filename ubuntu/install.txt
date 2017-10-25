@@ -1,0 +1,15 @@
+1 download ubuntu server iso http://releases.ubuntu.com/
+2 get flash bootable Rufus > select iso
+3 boot from this usb stick > select usb
+4 install ubuntu
+5 select driver
+6 pick username password
+7   7.1. PARTITION Manual > select Free Space > Create New Partition > 72Gb > Primary >use asExt4> Begining > Done seting partition
+    7.2. select rest of free space 8Gb > Create New Partition > 8Gb > Primary > use as Swap Area > Done > finish
+8 install security update
+9 run commands ufter installed:
+sudo apt update
+sudo apt upgrade
+sudo reboot
+
+
