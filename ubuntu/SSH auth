@@ -1,0 +1,43 @@
+1 192.168.1.1 login pass to your router
+2 Advanced Settings > NAT conf > DMZ Host [here configure Ubuntu server adress]
+2.1 go to server and find server adress: ifconfig    u will receive like this 192 168 1 24
+2.2 WAN interface pppoe1, DMZ Host IP Address  192 168 1 24 > Apply Changes
+
+3 Excess your ubuntu using external IP. to find ip adress terminal > curl ifconfig.me    245.32.745.11
+
+_____
+
+SSH in ubuntu
+local
+1 sudo apt-get install ssh
+2 if config > get local ip of your server 192.168.5.5
+3 from local machine terminal: ssh 192.168.5.5 
+
+external using password
+1 ssh myusername@Publicipadressofserver
+2 fingerprint yes\no > yes
+3 password of the user myusername
+4 exit to quit
+
+external using ssh https://www.youtube.com/watch?v=EuIYabZS3ow
+1 create new user account in ubuntu terminal: sudo adduser myusername2 > set password
+2 grant this user admin priviliges: gpasswd -a myusername2 sudo     (where sudo is a group)
+3 no need disable remote root login with password but only with ssh
+4 sudo nano /etc/ssh/sshd_config
+5 find line: /PerminRootLogin   change yes for no
+6 restart ssh service: service ssh restart
+7 in new terminal!!!! access ubuntu with new user account and password: ssh myusername2@externalIP > password
+8 test sudo: sudo touch /root/test   (create file in root folder) > pass
+9 optional but recomended set up public key auth for new user instead of a password
+10 new terminal on local computer: ssh-keygen    (it generate public\private key pair, public copy goes to server)
+11 except file location where to save key > enter /.ssh/id_rsa
+12 prompt for key passfrace: blank to just use key
+13 install Public ssh key on remote server
+14 cat .ssh/id_rsa.pub  > to print the key > copy and switch to ubuntu  terminal session where u under myusername2 
+15 make new .ssh directory: mkdir .ssh
+16 change permission: chmod 700 .ssh
+17 create authorised key file: vi .ssh/authorized_keys > paste public key exit
+18 now u can use private key on your local comp for authentication
+19 try to login again from your local > ssh myuser2@publicip > if no password prompt u ok
+20 now disable password authenticaton for all > login in ssh> sudo vi /etc/ssh/sshd_config > passwod > find passwordauth auth line > uncomment and change PasswordAuthentication from yes to no
+21 restart ssh: sudo service ssh restart
