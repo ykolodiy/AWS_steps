@@ -1,0 +1,21 @@
+cd /root/scripts/
+create script: nano test
+test.sh created
+
+
+//
+boot=$(date)
+echo "system booted at $boot" >> /root/tmp/bootlog
+
+//
+
+
+
+chmod u+x test.sh
+nano /etc/rc.local
+
+insert before exit0: /root/scripts/test.sh  (it will execute script)
+
+shutdown -r now  - to restart
+
+u done
