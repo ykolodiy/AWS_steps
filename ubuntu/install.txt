@@ -12,4 +12,20 @@ sudo apt update
 sudo apt upgrade
 sudo reboot
 
+----
+if wifi problem?
+iwconfig
+get name like: wlp7s0
 
+go to /etc/network/interfaces
+
+auto wlp3s0b1
+iface wlp3s0b1 inet dhcp
+        wpa-ssid <YOUR WIFI NETWORK NAME>
+        wpa-psk <YOUR WIFI NETWORK PASSWORD>
+
+
+sudo service networking restart
+
+reboot
+----
