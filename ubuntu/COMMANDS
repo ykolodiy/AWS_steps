@@ -1,0 +1,18 @@
+what ports:
+sudo lsof -nP -i | grep LISTEN
+or 
+netstat -ntlp | grep LISTEN
+or
+ps aux > show pid, cpu etc
+
+
+where location: 
+find / -name webapps -type d
+whereis firefox, 
+which firefox, 
+dpkg -L 'packagename'
+locate webapps| grep /webapps$
+
+
+
+firewall? : sudo ufw status
