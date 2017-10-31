@@ -1,0 +1,19 @@
+$ sudo apt-get install python-software-properties
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+$ sudo apt-get install nodejs
+$ node -v 
+$ npm -v 
+
+
+$ vim http_server.js
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(3000, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:3000/');
+
+node http_server.js
+
+
+sudo lsof -nP -i | grep LISTEN
