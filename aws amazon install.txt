@@ -208,3 +208,25 @@ remove jenkins
 sudo apt-get remove jenkins
 sudo apt-get remove --auto-remove jenkins
 sudo apt-get remove --purge jenkins
+
+
+
+/////
+Opening the Firewall
+By default, Jenkins runs on port 8080, so we'll open that port using ufw:
+
+sudo ufw allow 8080
+We can see the new rules by checking UFW's status.
+
+sudo ufw status
+We should see that traffic is allowed to port 8080 from anywhere:
+
+Output
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
