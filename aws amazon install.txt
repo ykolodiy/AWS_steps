@@ -212,7 +212,9 @@ sudo apt-get remove --purge jenkins
 
 
 /////
-Opening the Firewall
+Opening the Firewall https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04
+its inactive by default
+
 By default, Jenkins runs on port 8080, so we'll open that port using ufw:
 
 sudo ufw allow 8080
