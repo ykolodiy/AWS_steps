@@ -3,7 +3,8 @@
 2.1 go to server and find server adress: ifconfig    u will receive like this 192 168 1 24
 2.2 WAN interface pppoe1, DMZ Host IP Address  192 168 1 24 > Apply Changes
 
-3 Excess your ubuntu using external IP. to find ip adress terminal > curl ifconfig.me    245.32.745.11
+3 Excess your ubuntu using external IP. to find ip adress terminal > curl ifconfig.me    73.211.14.4
+
 
 _____
 
