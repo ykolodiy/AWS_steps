@@ -45,7 +45,9 @@ home 	/var/lib/jenkins
 
 
 get java location
-readlink -f /usr/bin/javac
+echo $JAVA_HOME
+
+( not always work    readlink -f /usr/bin/javac   )
 
 u got - /usr/lib/jvm/java-8-oracle/bin/javac
 ADD jdk   JAVA_HOME /usr/lib/jvm/java-8-oracle 
