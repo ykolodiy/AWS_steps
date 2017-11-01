@@ -59,6 +59,8 @@ now lets setup apache request to redirect requests from port 80 to 8080 where je
 
 
 Installing Apache
+or https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-16-04
+
 
 sudo apt-get install apache2
 sudo a2enmod proxy
