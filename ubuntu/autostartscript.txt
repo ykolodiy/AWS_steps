@@ -19,3 +19,45 @@ insert before exit0: /root/scripts/test.sh  (it will execute script)
 shutdown -r now  - to restart
 
 u done
+-------------------------------------------------------------------------------------------------
+
+for coldfusion
+
+With Webmin:
+
+Go to: System --> Boot up and Shutdown --> Create new
+Fill out form:
+Name: coldfusion
+Description: [optional]
+Boot up commands: /opt/coldfusion8/bin/coldfusion start (alter path based on your install)
+Shutdown commands: [leave blank]
+Start at boot time?: yes
+click Create
+Go to: Others --> File Manager
+Set permissions:
+Browse to /etc/init.d
+Select file "coldfusion"
+Set permissions to read, write, execute, for all.
+Click Save
+With CLI:
+
+CD to /etc/init.d
+Create file "coldfusion"
+Open file with VI or other text editor
+Paste following into file and save file. (change path to reflect your install path):
+
+view formatted print about
+#!/bin/sh
+
+case "$1" in
+'start')
+    /opt/coldfusion8/bin/coldfusion start 
+    ;;
+'stop')
+    ;;
+*)
+    echo "Usage: $0 { start | stop }"
+    ;;
+esac
+exit 0
+Change permissions on file to "777"
