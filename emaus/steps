@@ -1,0 +1,19 @@
+0 list of pages like http://emaus-oselya.org/ua/?page_id=2477
+
+1 get wordpress edit url http://emaus-oselya.org/ua/wp-
+
+admin/post.php?post=2477&action=edit
+
+2 find what page has
+[huge_it_gallery id="21"]
+
+3 if has, filter down the list and create url like
+http://emaus-oselya.org/ua/wp-admin/admin.php?
+
+page=galleries_huge_it_gallery&task=edit_cat&id=21
+
+4 go to that url and grab png and jpg files
+
+5 get list of uploaded new urls of images txt
+
+6 
