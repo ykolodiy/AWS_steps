@@ -1,2 +1,8 @@
+BACKUP
 compress backup ubuntu   cd /
-sudo tar -cvpzf mybackupfile.tar.gz --exclude=/mnt /      (/ - back up root but exclude /mnt)
+(/ - back up root but exclude /mnt)
+
+sudo tar -cvpzf mybackupfile.tar.gz --exclude=/mnt / 
+
+Recover 
+sudo tar -xvpzf mybackupfile.tar.gz -C /recover
