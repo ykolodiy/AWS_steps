@@ -1,3 +1,24 @@
+https://www.youtube.com/watch?v=oS5uH0mzMTg Backup and Restore Your Linux System with rsync
+
+1 get flash drive
+2 format it to linux> sudo unmount /dev/sdb1
+3 sudo mkfs.ext4 /dev/sdb1 -L 'aser'
+4 sudo rsync ... --exclude ...  /from /to
+
+5 in empty pc boot from live usb to be able run commands
+6 after boot mount usb driver   mkdir mnt/system mnt/usb
+7 mount dev/sda1 /mnt/system
+8 mount dev/sdb1 /mnt/usb
+9 rsync -aAXv ... mnt/usb /mnt/system
+10 reboot
+
+
+
+
+
+
+just archive
+
 BACKUP
 compress backup ubuntu   cd /
 (/ - back up root but exclude /mnt)
@@ -6,3 +27,7 @@ sudo tar -cvpzf mybackupfile.tar.gz --exclude=/mnt /
 
 Recover 
 sudo tar -xvpzf mybackupfile.tar.gz -C /recover
+
+
+
+
