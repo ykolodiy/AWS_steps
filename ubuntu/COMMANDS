@@ -16,3 +16,9 @@ locate webapps| grep /webapps$
 
 
 firewall? : sudo ufw status
+ls -l, which only displays the size of the individual files in a directory, nor
+df -h, which only displays the free and used space on my disks.
+The command du "summarizes disk usage of each FILE, recursively for directories," e.g.,     du -hs /path/to/directory
+
+This finds the size recursively and puts it next to each folder name, along with total size at the bottom, all in the human format
+du -hsc *
