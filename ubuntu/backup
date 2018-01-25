@@ -7,11 +7,31 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg Backup and Restore Your Linux System
 
 5 in empty pc boot from live usb to be able run commands
 6 after boot mount usb driver   mkdir mnt/system mnt/usb
-7 mount dev/sda1 /mnt/system
-8 mount dev/sdb1 /mnt/usb
+7 mount dev/sda1 /mnt/system/
+8 mount dev/sdb1 /mnt/usb/
 9 rsync -aAXv ... mnt/usb /mnt/system
 10 reboot
 
+
+for example for Acer:
+BACKUP
+sudo rsync -aAXv --delete --exclude=/mnt/* --exclude=".cache" / /home/acer/ubuntubackup
+
+RESTORE  save /home/acer/ubuntubackup to usb drive
+1 mount our system in usb drive
+: mkdir mnt/system mnt/usb
+2 check our devices
+: lsblk
+sda1 should be system
+sdb1 should be usb
+3 mount system and usb
+:mount dev/sda1 /mnt/system/
+:mount dev/sdb1 /mnt/usb/
+4check if filea are there
+: cd mnt/system > ls
+: cd mnt/usb > ls
+5 RESTORE
+sudo rsync -aAXv --delete --exclude="lost+found" /mnt/usb/  /mnt/system   NO SLASH at END
 
 
 
