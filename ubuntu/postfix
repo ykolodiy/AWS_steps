@@ -128,3 +128,21 @@ This will give you an interface to interact with your mail
 
 
 https://rudd-o.com/linux-and-free-software/setting-up-a-mail-server-using-postfix-in-5-minutes
+
+
+
+
+
+
+sudo apt-get remove mailutils
+Uninstall mailutils and it's dependent packages
+To remove the mailutils package and any other dependant package which are no longer needed from Ubuntu Utopic.
+
+sudo apt-get remove --auto-remove mailutils
+Purging mailutils
+If you also want to delete configuration and/or data files of mailutils from Ubuntu Utopic then this will work:
+
+sudo apt-get purge mailutils
+To delete configuration and/or data files of mailutils and it's dependencies from Ubuntu Utopic then execute:
+
+sudo apt-get purge --auto-remove mailutils
