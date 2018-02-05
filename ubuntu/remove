@@ -1,0 +1,27 @@
+sudo apt-get remove --auto-remove nameOFprogram
+
+sudo apt-get purge --auto-remove nameOFprogram
+
+
+
+
+
+
+example
+
+
+Uninstall mailutils
+To remove just mailutils package itself from Ubuntu 14.10 (Utopic Unicorn) execute on terminal:
+
+sudo apt-get remove mailutils
+Uninstall mailutils and it's dependent packages
+To remove the mailutils package and any other dependant package which are no longer needed from Ubuntu Utopic.
+
+sudo apt-get remove --auto-remove mailutils
+Purging mailutils
+If you also want to delete configuration and/or data files of mailutils from Ubuntu Utopic then this will work:
+
+sudo apt-get purge mailutils
+To delete configuration and/or data files of mailutils and it's dependencies from Ubuntu Utopic then execute:
+
+sudo apt-get purge --auto-remove mailutils
