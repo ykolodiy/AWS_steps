@@ -22,10 +22,21 @@ body text here
 
 
 
+or
+
+mail -s "Hello World" someone@example.com
+
+$ mail -s "Hello World" someone@example.com
+Cc: 
+Hi Peter
+How are you
+I am fine
+Good Bye
+<Ctrl+D>
 
 
-
-
+or in 1 line 
+$ mail -s "This is the subject" somebody@example.com <<< 'This is the message'
 
 
 
