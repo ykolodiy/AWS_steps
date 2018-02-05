@@ -10,8 +10,11 @@ mail to: acer@ukrtv.biz
 mail from: root@ukrtv.biz
 rcpt to: acer@ukrtv.biz
 
-subject: dddd
-dddd
+(subject: dddd)
+
+data
+
+body text here
 .
 
 
