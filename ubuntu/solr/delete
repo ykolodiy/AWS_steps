@@ -1,0 +1,23 @@
+import java.io.IOException; 
+import org.apache.solr.client.solrj.SolrClient; 
+import org.apache.solr.client.solrj.SolrServerException; 
+import org.apache.solr.client.solrj.impl.HttpSolrClient;  
+
+
+public class Delete {
+	public static void main(String args[]) {
+		 String urlString = "http://lotov1";
+		 //SolrClient solr = new HttpSolrClient(urlString);  deprecated
+		 SolrClient solr = new HttpSolrClient.Builder(urlString).build(); 
+		 try {
+		 solr.deleteById("004");
+		 solr.commit();
+		 } catch (SolrServerException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 } catch (IOException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
+		 }
+}
