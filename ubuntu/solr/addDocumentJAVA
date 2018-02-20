@@ -1,0 +1,39 @@
+Adding Documents using Java Client API
+Following is the Java program to add documents to Apache Solr index. Save this code in a file with the name AddingDocument.java.
+
+import java.io.IOException;  
+
+import org.apache.Solr.client.Solrj.SolrClient; 
+import org.apache.Solr.client.Solrj.SolrServerException; 
+import org.apache.Solr.client.Solrj.impl.HttpSolrClient; 
+import org.apache.Solr.common.SolrInputDocument; 
+
+public class AddingDocument { 
+   public static void main(String args[]) throws Exception { 
+      //Preparing the Solr client 
+      String urlString = "http://localhost:8983/Solr/my_core"; 
+      SolrClient Solr = new HttpSolrClient.Builder(urlString).build();   
+      
+      //Preparing the Solr document 
+      SolrInputDocument doc = new SolrInputDocument(); 
+   
+      //Adding fields to the document 
+      doc.addField("id", "003"); 
+      doc.addField("name", "Rajaman"); 
+      doc.addField("age","34"); 
+      doc.addField("addr","vishakapatnam"); 
+         
+      //Adding the document to Solr 
+      Solr.add(doc);         
+         
+      //Saving the changes 
+      Solr.commit(); 
+      System.out.println("Documents added"); 
+   } 
+}
+Compile the above code by executing the following commands in the terminal −
+
+[Hadoop@localhost bin]$ javac AddingDocument 
+[Hadoop@localhost bin]$ java AddingDocument 
+On executing the above command, you will get the following output.
+
