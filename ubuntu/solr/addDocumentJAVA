@@ -2,11 +2,10 @@ Adding Documents using Java Client API
 Following is the Java program to add documents to Apache Solr index. Save this code in a file with the name AddingDocument.java.
 
 import java.io.IOException;  
-
-import org.apache.Solr.client.Solrj.SolrClient; 
-import org.apache.Solr.client.Solrj.SolrServerException; 
-import org.apache.Solr.client.Solrj.impl.HttpSolrClient; 
-import org.apache.Solr.common.SolrInputDocument; 
+import org.apache.solr.common.SolrInputDocument; 
+import org.apache.solr.client.solrj.SolrClient; 
+import org.apache.solr.client.solrj.SolrServerException; 
+import org.apache.solr.client.solrj.impl.HttpSolrClient; 
 
 public class AddingDocument { 
    public static void main(String args[]) throws Exception { 
