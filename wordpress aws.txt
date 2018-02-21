@@ -71,7 +71,7 @@ From the Tools menu, click Search and Replace.
 Enter your old site URL in the Search for field. For example, http://olddomainexample.com (no trailing slash).
 Enter your new site URL in the Replaced with field. For example, http://newdomainexample.com (no trailing slash).
 Select All, and then click Go.
-Using your hosting account's editor, open your wp-config.php file, and remove the following two lines:
+Using your hosting account's editor, open your wp-config.php file, and remove or FIX them the following two lines:
 define('WP_HOME','http://example.com');
 define('WP_SITEURL','http://example.com');
 
