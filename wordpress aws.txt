@@ -83,6 +83,7 @@ search replace script https://github.com/interconnectit/Search-Replace-DB
 
 
 links not working?
+try to change permalinks from text to numbers
 
 In /etc/apache2/apache2.conf, edit AllowOverride None for /var/www/ to AllowOverride All
 Type in the following command to enable mod_rewrite for .htaccess
