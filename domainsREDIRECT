@@ -1,0 +1,5 @@
+syntetic record
+subdomain forward @ > http://www.alloamerica.us
+
+custom resource records
+www > CNAME > alloamerica.co.nf
