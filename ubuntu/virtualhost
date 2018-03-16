@@ -1,0 +1,40 @@
+virtual host https://www.youtube.com/watch?v=yUWtrYlM_9c
+ 
+1 cd /etc/apache2/    ls site-enabled
+2 cd /var/www   mkdir  siteA
+3 2 cd /var/www   mkdir  siteB
+4 put index.html cp index.html siteA
+5 mkdir logs
+
+6 /etc/apache2/sites-available/default
+add:
+NameVirtualHost *
+<VirtualHost *>
+  ServerName www.siteA.com
+  ServerAlias siteA.com 
+  DocumentRoot /var/www/siteA
+  CustomLog /var/www/logs/siteA.log combined
+  ErrorLog /var/www/logs/siteA.log
+</VirtualHost>
+
+<VirtualHost *>
+  ServerName www.siteB.com
+  ServerAlias siteB.com 
+  DocumentRoot /var/www/siteB
+  CustomLog /var/www/logs/siteB.log combined
+  ErrorLog /var/www/logs/siteB.log
+
+  <Files "index.html">
+ 	Order Deny,Allow
+	Deny from all
+	Allow from 192.168.1.7
+</Files>
+</VirtualHost>
+
+
+7 now
+/etc/init.d*apache2 restart
+
+
+8 modify hosts file   192.168.1.7 siteA.com 192.168.1.7 siteB.com
+
