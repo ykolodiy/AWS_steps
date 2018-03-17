@@ -100,3 +100,9 @@ Try flushing your mod_rewrite rules:
 Dashboard -> Settings -> Permalinks
 
 Save settings (no need to make any changes)
+
+
+
+if you map your url to some like 000webhost in wordpress to make wp-login working add to wpconfig
+define('ADMIN_COOKIE_PATH', '/'); define('COOKIE_DOMAIN', ''); define('COOKIEPATH', ''); define('SITECOOKIEPATH', '');
+
