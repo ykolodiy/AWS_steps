@@ -79,8 +79,8 @@ define('WP_SITEURL','http://example.com');
 
 
 search replace script https://github.com/interconnectit/Search-Replace-DB
-
-
+Repo - staging - live. Bitbucket ftploy
+http://www.wpbeginner.com/wp-tutorials/how-to-create-staging-environment-for-a-wordpress-site/
 
 links not working?
 try to change permalinks from text to numbers
