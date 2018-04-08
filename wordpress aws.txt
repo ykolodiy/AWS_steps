@@ -106,3 +106,11 @@ Save settings (no need to make any changes)
 if you map your url to some like 000webhost in wordpress to make wp-login working add to wpconfig
 define('ADMIN_COOKIE_PATH', '/'); define('COOKIE_DOMAIN', ''); define('COOKIEPATH', ''); define('SITECOOKIEPATH', '');
 
+
+when you park domain it can prevent css fonts to show
+just add to .htaccess 
+<FilesMatch "\.(ttf|ttc|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>"
