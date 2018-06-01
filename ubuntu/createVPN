@@ -1,0 +1,9 @@
+https://www.youtube.com/watch?v=6w3DquIB8yE
+
+access your site only via VPN >>
+ErrorDocument 403 /specific_page.html
+order deny,allow
+deny from all
+allow from 111.222.333.444
+
+https://stackoverflow.com/questions/4400154/deny-all-allow-only-one-ip-through-htaccess
