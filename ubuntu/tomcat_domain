@@ -1,1 +1,15 @@
 https://www.youtube.com/watch?v=V598VXQzTog
+
+----
+ROOT.xml in localhost
+https://www.youtube.com/watch?v=TPUBmDD1PrE&t=52s
+
+If you want to have a site available at http://myhost:8080/myTestContext, put the following in 
+$Catalina_home$/conf/localhost/whateveryoulike.xml
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+    <Context deployOnStartup="true" docBase="C:\path\to\your\docBase\" path="/myTestContext" reloadable="false">
+    <Manager pathname=""/>
+</Context>
+
+or http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Defining_a_context
