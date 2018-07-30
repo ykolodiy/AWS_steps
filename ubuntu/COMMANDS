@@ -14,6 +14,12 @@ dpkg -L 'packagename'
 locate webapps| grep /webapps$
 
 
+The command du "summarizes disk usage of each FILE, recursively for directories," e.g.,
+
+du -hs /var/log
+
+///// jenkins put trash in this folder. clean this /var/log
+
 
 firewall? : sudo ufw status
 ls -l, which only displays the size of the individual files in a directory, nor
