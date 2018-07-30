@@ -16,9 +16,9 @@ locate webapps| grep /webapps$
 
 The command du "summarizes disk usage of each FILE, recursively for directories," e.g.,
 
-du -hs /var/log
+du -hs /var/log/jenkins
 
-///// jenkins put trash in this folder. clean this /var/log
+///// jenkins put trash in this folder. clean this /var/log/jenkins
 
 
 firewall? : sudo ufw status
