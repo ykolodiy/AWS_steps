@@ -1,0 +1,5 @@
+The command du "summarizes disk usage of each FILE, recursively for directories," e.g.,
+
+du -hs /var/log/jenkins
+
+///// jenkins put trash in this folder. clean this /var/log/jenkins
