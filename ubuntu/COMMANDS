@@ -18,6 +18,9 @@ The command du "summarizes disk usage of each FILE, recursively for directories,
 
 du -hs /var/log/jenkins
 
+DO THIS:
+echo 'password' | sudo rm -rf /var/log/jenkins/*
+
 ///// jenkins put trash in this folder. clean this /var/log/jenkins
 
 
