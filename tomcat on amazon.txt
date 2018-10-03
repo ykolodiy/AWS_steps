@@ -1,3 +1,16 @@
+block all ip accept one
+in \apache-tomcat-7.0.33\conf\server.xml:
+
+<Engine name="Catalina" defaultHost="localhost">
+    ...
+    ...
+    ...
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+        allow="10\.132\.77\.55|10\.132\.76\.120|10\.132\.77\.47"/>
+    ...
+</Engine>
+
+
 https://serverfault.com/questions/316686/run-tomcat-and-java-on-amazon-ec2-instance
 
 or https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04
