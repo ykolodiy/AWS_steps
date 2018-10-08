@@ -47,6 +47,9 @@ ls -d -1 $PWD/**/*
 PRINT ALL
 find $PWD 
 
+skip hidden
+find . -not -path '*/\.*'
+
 or 
 
 ls -R
