@@ -43,3 +43,6 @@ ls -d -1 $PWD/*.*
 
 everything:
 ls -d -1 $PWD/**/*
+
+PRINT ALL
+find $PWD 
