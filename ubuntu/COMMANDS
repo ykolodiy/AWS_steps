@@ -46,3 +46,7 @@ ls -d -1 $PWD/**/*
 
 PRINT ALL
 find $PWD 
+
+or 
+
+ls -R
