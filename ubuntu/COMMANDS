@@ -31,3 +31,15 @@ The command du "summarizes disk usage of each FILE, recursively for directories,
 
 This finds the size recursively and puts it next to each folder name, along with total size at the bottom, all in the human format
 du -hsc *
+
+
+
+list alll files full path
+folders:
+ls -d -1 $PWD/**
+
+files:
+ls -d -1 $PWD/*.*
+
+everything:
+ls -d -1 $PWD/**/*
