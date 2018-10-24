@@ -1,0 +1,9 @@
+check system: lsb_release -a
+
+For Ubuntu Server:
+
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get dist-upgrade
+$ sudo reboot
+$ sudo do-release-upgrade -d
