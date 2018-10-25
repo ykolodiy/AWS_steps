@@ -3,3 +3,7 @@ The command du "summarizes disk usage of each FILE, recursively for directories,
 du -hs /var/log/jenkins
 
 ///// jenkins put trash in this folder. clean this /var/log/jenkins
+
+
+to clean every week set crom 0 0 */7 * *
+and run command: rm -rf /var/log/jenkins/*
