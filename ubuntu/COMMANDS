@@ -44,7 +44,7 @@ ls -d -1 $PWD/*.*
 everything:
 ls -d -1 $PWD/**/*
 
-PRINT ALL
+!!!!!!!!!PRINT ALL the best
 find $PWD 
 
 skip hidden
