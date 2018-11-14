@@ -53,8 +53,9 @@ ____________________________________________________________________________
 
 https://www.youtube.com/watch?v=KTayZIou-1M
 BACKUP:
-sudo tar -cvpzf nameofarchive.tar.gz --exclude=/home/acer/nameofarchive.tar.gz --one-file-system /
+1 sudo tar -cvpzf nameofarchive.tar.gz --exclude=/home/acer/nameofarchive.tar.gz --one-file-system /
 
 RESTORE (copy the file nameofarchive.tar.gz to new server:
-sudo tar -xvpzf /home/acer/nameofarchive.tar.gz -C / --numeric-owner
+2 sudo tar -xvpzf /home/acer/nameofarchive.tar.gz -C / --numeric-owner
 
+3 sudo reboot
