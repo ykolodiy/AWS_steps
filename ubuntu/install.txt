@@ -1,5 +1,5 @@
 1 download ubuntu server iso http://releases.ubuntu.com/
-2 get flash bootable Rufus > select iso
+2 get flash bootable Rufus > select iso     (or uui https://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/)
 3 boot from this usb stick > select usb
 4 install ubuntu
 5 select driver
