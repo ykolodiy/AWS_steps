@@ -1,0 +1,9 @@
+INSTALL FILE
+To install a .deb file, simply Right click on the .deb file, and choose Kubuntu Package Menu->Install Package.
+OR
+sudo dpkg -i package_file.deb
+
+UNINSTALL PACKAGE
+To uninstall a .deb file, remove it using Adept, or type:
+OR
+sudo apt-get remove package_name
