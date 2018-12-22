@@ -1,0 +1,40 @@
+0
+
+Activating TAP to click with xinput via command line :
+
+1.Find your device id (in my case 13 bellow ):
+
+root@lubuntu:~# xinput list
+
+Look for:
+
+    ⎜   ↳ ETPS/2 Elantech Touchpad                  id=13   [slave  pointer  (2)]
+
+2.Find the "Tapping" desired option code (in my case 283 bellow) :
+
+root@lubuntu:~# xinput list-props 13
+
+Look for:
+
+    libinput Tapping Enabled (283): 0
+
+3.Activate it with "1" using:
+
+root@lubuntu:~# xinput set-prop 13 283 1
+
+4.List props once more to confirm:
+
+root@lubuntu:~# xinput list-props 13
+
+Look for:
+
+    libinput Tapping Enabled (283): 1
+
+Enjoy.
+
+Resolution Source: https://wiki.archlinux.org/index.php/Libinput#Via_xinput
+shareimprove this answer
+answered Nov 2 at 5:03
+Alex Souza
+1
+add a comment
