@@ -44,7 +44,7 @@ There is more than one way to work with a MySQL server, but this article focuses
 
     At the command prompt, run the following command to launch the mysql shell and enter it as the root user:
 
-    /usr/bin/mysql -u root -p
+    sudo /usr/bin/mysql -u root -p
 
     When you’re prompted for a password, enter the one that you set at installation time, or if you haven’t set one, press Enter to submit no password.
 
