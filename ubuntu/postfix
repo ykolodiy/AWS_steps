@@ -1,1 +1,112 @@
-https://poweruphosting.com/blog/install-configure-postfix-ubuntu/
+https://opensourceinside.blogspot.com/2016/09/how-to-install-and-configure-postfix-to.html
+
+
+How To Install And Configure Postfix To Send Mail By Using Gmail As Mail Relay In Ubuntu 16.04 & 14.04
+
+Postfix is a cross platform, free and opensource Mail Transfer Agent (MTA) designed to be an alternative to the widely-used Sendmail program. The main aim of Postfix is to be fast, easy to administer, and secure. The outside has a definite Sendmail-ish flavor, but the inside is completely different. Today we are going to see how to install and configure Postfix to send E-mail using gmail as mail relay server... and I'm using Ubuntu 16.04 LTS for this tutorial..(also tested in 14..04)
+
+Installation
+You can get Postfix from offical Ubuntu repositories.. So you can install it by running the apt install command..
+
+For Ubuntu 16.04
+sudo apt update && sudo apt -y install libsasl2-modules postfix
+For Ubuntu 14.04
+sudo apt-get update && sudo apt-get -y install libsasl2-modules postfix
+Postfix Configuration..
+During the installation of Postfix, you will be asked to choose default configuration for postfix...
+Select Internet Site...
+
+
+Enter Fully Qualified Domain Name(FQDN).. for example if you are going to use myuser.example.com then you have to fill example.com for following field..
+
+
+After installation has completed successfully, proceed following steps to use gmail SMTP server as relayhost.
+
+Configuring Postfix To Use Gmail's SMTP server as Relayhost..
+Now we will see how to configure Postfix to send E-mails using gmail as relay host.. To do this we need to edit /etc/postfix/main.cf... open main.cf file in your favorite text editor.. here i am using sublime text(it's my favorite editor ☻)..
+See How To Install Sublime Text On Linux
+
+subl /etc/postfix/main.cf
+If you want to open with gedit run following the command..
+
+sudo gedit /etc/postfix/main.cf
+Then add following lines to the end of main.cf file..
+
+
+# enable SASL authentication 
+smtp_sasl_auth_enable = yes 
+# disallow methods that allow anonymous authentication. 
+smtp_sasl_security_options = noanonymous
+# where to find sasl_passwd
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+# Enable STARTTLS encryption 
+smtp_use_tls = yes
+# where to find CA certificates
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+And also set relayhost value to [smtp.gmail.com]:587..
+
+relayhost = [smtp.gmail.com]:587
+Configure Gmail Username and Password For Authentication :
+first you have to create file named sasl_passwd inside /etc/postfix/...
+
+sudo touch /etc/postfix/sasl_passwd
+Then open recently created file with your choice of text editor..
+
+sudo gedit /etc/postfix/sasl_passwd
+or, if you have sublime text editor... run following..
+
+subl /etc/postfix/sasl_passwd
+Now add your smtp server address, port, username and password details in the format shown below..
+
+[smtp relayhost ip or name]:port username:password
+For our case (gmail)... following is more suitable example...
+
+[smtp.gmail.com]:587 abcd@gmail.com:mypassword
+You have to Turn On Allow less secure apps in-order to use your Postfix MTA work properly with gmail.. To do this go to https://myaccount.google.com/security/lesssecureapps find Allow less secure apps option and Turn On it..
+
+
+⇓
+
+
+
+Don't forget to replace with abcd and mypassword with your username and password..
+then save and create lookup-table or hash for above file.. by running postmap command..
+if you ma any changes
+
+sudo postmap /etc/postfix/sasl_passwd
+The above command will create new file sasl_passwd.db in the same location as sasl_passwd file exists..
+You should recompile sasl_passwd file.. means you have to run above command whenever you make change in sasl_passwd file...
+Restart or Reload Postfix :
+Before you use, You should reload or restart Postfix whenever you make changes to main.cf file..
+
+For Ubuntu 16.04
+sudo systemctl restart postfix
+For Ubuntu 14.04
+sudo service postfix restart
+Or you can reload postfix with it's own implementation..
+
+sudo postfix reload
+Testing Postfix Installation 
+The easy way to test your postfix installation and configuration is use mail command or sendmail command..
+
+Testing using mail command :
+You can use mail command to send mail as follows..
+
+echo message_text | mail -s "subject" Recipient Email Address
+For example.. if you want to send mail to myfriendd@outlook.com ... the above command will looks like the following one..
+
+echo Hello | mail -s "Test Mail Subject" shivarajnaidu@outlook.com
+Testing using sendmail command :
+You can even postfix's implementation of sendmail command..
+
+
+sendmail shivarajnaidu@outlook.com
+From: you@example.com
+Subject: Test Mail Subject
+Hello
+.
+
+Note the trailing "." (dot) in sendmail command example.
+Usually send mail will consider "." (dot) as end of message
+Debugging :
+If you didn't receive mail, when you test with above commands.. then see mail.log and mail.err files which are present in /var/log/... From these two files you can point-out the problem and it will be helpful for troubleshooting the problem.
