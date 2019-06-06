@@ -96,6 +96,7 @@ echo message_text | mail -s "subject" Recipient Email Address
 For example.. if you want to send mail to myfriendd@outlook.com ... the above command will looks like the following one..
 
 echo Hello | mail -s "Test Mail Subject" shivarajnaidu@outlook.com
+echo Hello6 | mail -aFrom:zzzzz@gmail.com -s "subj" xxxxxxx@gmail.com
 Testing using sendmail command :
 You can even postfix's implementation of sendmail command..
 
